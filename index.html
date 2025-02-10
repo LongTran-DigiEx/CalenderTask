@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calender</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <h2 id="canlender-header" class="table-header"></h2>
+      <h1 id="date-header"></h1>
+      <h1 id="week-date"></h1>
+
+      <!-- Content -->
+      <div class="table">
+        <div>
+          <div class="table-content">
+            <div class="table-content-header">CN</div>
+            <div class="table-content-header">T2</div>
+            <div class="table-content-header">T3</div>
+            <div class="table-content-header">T4</div>
+            <div class="table-content-header">T5</div>
+            <div class="table-content-header">T6</div>
+            <div class="table-content-header">T7</div>
+          </div>
+
+          <!-- Calender table date -->
+          <div id="canlender" class="table-content"></div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="navigation">
+        <div id="prev-year" class="nav-btn">«</div>
+        <div id="prev-month" class="nav-btn">‹</div>
+
+        <!-- Date Selection -->
+        <div class="selector">
+          <!-- Day Selection -->
+          <select name="days" id="day-selection"></select>
+
+          <div class="">/</div>
+
+          <!-- Month selection -->
+          <select name="months" id="month-selection"></select>
+
+          <div class="">/</div>
+
+          <input type="number" min="1900" max="4000" id="year" />
+        </div>
+
+        <div id="confirm-button" class="confirm-btn">OK</div>
+
+        <div id="next-month" class="nav-btn">›</div>
+        <div id="next-year" class="nav-btn">»</div>
+
+        <div id="today-date-button" class="confirm-btn">@</div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

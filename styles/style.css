@@ -1,0 +1,98 @@
+:root {
+  --main-color: yellowgreen;
+  --date-color: rgb(200, 222, 157);
+  --table-width: 100px;
+  --font-weight: 600;
+}
+
+.container {
+  width: fit-content;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  border: 1px solid black;
+  border-radius: 1rem;
+}
+
+/* Header */
+.table-header {
+  width: 100%;
+  text-align: center;
+  font-weight: var(--font-weight);
+  background-color: var(--main-color);
+}
+
+h1 {
+  font-weight: var(--font-weight);
+}
+
+#week-date {
+  text-align: center;
+  width: 100%;
+  text-decoration: underline;
+}
+
+/* Table */
+.table {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 0.5rem;
+  border-collapse: collapse;
+}
+
+.table-content {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  margin-bottom: 5px;
+}
+
+.table-content-header {
+  width: var(--table-width);
+  text-align: center;
+  padding: 0 5px;
+  background-color: var(--date-color);
+}
+
+.day-card {
+  width: var(--table-width);
+  background-color: var(--date-color);
+  padding: 10px 5px;
+  text-align: center;
+  font-weight: var(--font-weight);
+}
+
+.date {
+  cursor: pointer;
+}
+
+/* Navigation */
+.navigation {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.nav-btn {
+  font-size: 20px;
+  font-weight: var(--font-weight);
+  cursor: pointer;
+}
+
+.selector {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm-btn {
+  cursor: pointer;
+  background-color: azure;
+  padding: 2px 3px;
+}
