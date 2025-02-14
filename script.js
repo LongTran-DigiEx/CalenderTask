@@ -1,7 +1,7 @@
-const calenderHeader = document.getElementById("canlender-header");
+const calenderHeader = document.getElementById("calender-header");
 const dateHeader = document.getElementById("date-header");
 const weekDateHeader = document.getElementById("week-date");
-const canlender = document.getElementById("canlender");
+const calender = document.getElementById("calender");
 const prevYearBtn = document.getElementById("prev-year");
 const prevMonthBtn = document.getElementById("prev-month");
 const nextYearBtn = document.getElementById("next-year");
@@ -20,23 +20,18 @@ let currentDate = today.getDate();
 let exDate = new Date(currentYear, currentMonth, currentDate);
 
 // Get day in week by convert from getDay() number
-function getWeekDay(number) {
-  switch (number) {
-    case 0:
-      return "Chủ nhật - Sunday";
-    case 1:
-      return "Thứ 2 - Monday";
-    case 2:
-      return "Thứ 3 - Tuesday";
-    case 3:
-      return "Thứ 4 - Wednesday";
-    case 4:
-      return "Thứ 5 - Thursday";
-    case 5:
-      return "Thứ 6 - Friday";
-    case 6:
-      return "Thứ 7 - Saturday";
-  }
+const daysOfWeek = [
+  "Chủ nhật - Sunday",
+  "Thứ 2 - Monday",
+  "Thứ 3 - Tuesday",
+  "Thứ 4 - Wednesday",
+  "Thứ 5 - Thursday",
+  "Thứ 6 - Friday",
+  "Thứ 7 - Saturday",
+];
+
+function getWeekDay(day) {
+  return daysOfWeek[day] || "";
 }
 
 // Default context
@@ -46,13 +41,10 @@ weekDateHeader.textContent = getWeekDay(today.getDay());
 
 // Get Number of days in selected month
 function getNumberOfDaysInMonth(month, year) {
-  let date = new Date(year, month, 1);
   let days = [];
-  for (let i = 0; i < date.getDate(); i++) {
-    days.push(new Date(date));
-
-    // Set date to the next day, and will stop pushing at the first day of next month
-    date.setDate(date.getDate() + 1);
+  let totalDays = new Date(year, month + 1, 0).getDate();
+  for (let i = 1; i <= totalDays; i++) {
+    days.push(new Date(year, month, i));
   }
 
   return days;
@@ -61,7 +53,7 @@ function getNumberOfDaysInMonth(month, year) {
 // Get current and change calender
 function getCurrentCalender(month, year) {
   // Clear table context
-  canlender.innerHTML = "";
+  calender.innerHTML = "";
 
   const numberOfDay = getNumberOfDaysInMonth(month, year);
 
@@ -70,7 +62,7 @@ function getCurrentCalender(month, year) {
     let daysBefore = document.createElement("div");
     daysBefore.className = "day-card";
     daysBefore.textContent = "";
-    canlender.appendChild(daysBefore);
+    calender.appendChild(daysBefore);
   }
 
   // All days
@@ -89,7 +81,7 @@ function getCurrentCalender(month, year) {
     if (e.getDate() === exDate.getDate())
       dateDiv.style.backgroundColor = "yellowgreen";
 
-    canlender.appendChild(dateDiv);
+    calender.appendChild(dateDiv);
   });
 }
 
